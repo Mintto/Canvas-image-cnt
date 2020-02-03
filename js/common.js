@@ -52,6 +52,7 @@ function App(){
 			}
 		},mousedown : function(e){
 			c_drag.drag = true;
+			console.log(e.offsetY);
 			c_drag.arr.push(new drag_box(e.offsetX,e.offsetY));
 		}
 	}
@@ -101,8 +102,10 @@ function App(){
 		c_drag.box.append(this.div);
 	}
 	drag_box.prototype.Setmove = function(x,y){
+		console.log(this.downX,this.downY);
 		this.moveX = x;
 		this.moveY = y;
+		console.log(this.moveY);
 	}
 	drag_box.prototype.Createmove = function(){
 		let left = this.downX, top = this.downY;
@@ -111,6 +114,7 @@ function App(){
 		}
 		if( this.moveY < this.downY ){			
 			top = this.moveY;
+			console.log(top);
 		}
 		this.div.style.left = left+"px";
 		this.div.style.top = top+"px";
